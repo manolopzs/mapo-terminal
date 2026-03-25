@@ -12,6 +12,7 @@ import { EarningsCalendar } from "@/components/EarningsCalendar";
 import { CorrelationMatrix } from "@/components/CorrelationMatrix";
 import { VolatilityBars } from "@/components/VolatilityBars";
 import { TopMovers } from "@/components/TopMovers";
+import { GainLossTable } from "@/components/GainLossTable";
 import { NewsTicker } from "@/components/NewsTicker";
 import { TerminalSidebar } from "@/components/TerminalSidebar";
 import { TradeHistory } from "@/components/TradeHistory";
@@ -195,9 +196,14 @@ export default function Dashboard() {
             </div>
           </div>
 
-          {/* Col 4, Row 2: Top Movers */}
-          <div className="flex flex-col" style={{ borderTop: "1px solid #1A2332", overflow: "auto" }}>
-            <TopMovers holdings={holdingsData} />
+          {/* Col 4, Row 2: Top Movers + Gain/Loss */}
+          <div className="flex flex-col" style={{ borderTop: "1px solid #1A2332", overflow: "hidden" }}>
+            <div style={{ flex: "0 0 auto", maxHeight: "45%", overflow: "hidden" }}>
+              <TopMovers holdings={holdingsData} />
+            </div>
+            <div style={{ flex: 1, overflow: "auto", borderTop: "1px solid #1A2332", minHeight: 0 }}>
+              <GainLossTable holdings={holdingsData} />
+            </div>
           </div>
         </div>
 

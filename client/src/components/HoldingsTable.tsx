@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { Trash2 } from "lucide-react";
 import { useDeleteHolding } from "@/hooks/use-portfolio";
 import type { Holding } from "@shared/schema";
@@ -10,6 +11,15 @@ interface HoldingsTableProps {
 export function HoldingsTable({ holdings, totalValue }: HoldingsTableProps) {
   const sorted = [...holdings].sort((a, b) => (b.value ?? 0) - (a.value ?? 0));
   const deleteHolding = useDeleteHolding();
+
+  const totals = useMemo(() => {
+    const totalCost = holdings.reduce((s, h) => s + (h.costBasis ?? 0), 0);
+    const totalVal = holdings.reduce((s, h) => s + (h.value ?? 0), 0);
+    const totalDayChg = holdings.reduce((s, h) => s + (h.dayChange ?? 0), 0);
+    const pnl = totalVal - totalCost;
+    const pnlPct = totalCost > 0 ? (pnl / totalCost) * 100 : 0;
+    return { totalCost, totalVal, totalDayChg, pnl, pnlPct };
+  }, [holdings]);
 
   return (
     <div className="terminal-panel flex-1" style={{ minHeight: 0 }}>
@@ -131,6 +141,79 @@ export function HoldingsTable({ holdings, totalValue }: HoldingsTableProps) {
           </tbody>
         </table>
       </div>
+
+      {/* Total P&L footer — always visible */}
+      {holdings.length > 0 && (
+        <div
+          style={{
+            flexShrink: 0,
+            borderTop: "1px solid #1A2332",
+            background: "#080C14",
+            padding: "5px 8px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
+        >
+          <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+            <span
+              style={{
+                fontSize: 8,
+                fontWeight: 700,
+                letterSpacing: 1.5,
+                textTransform: "uppercase",
+                color: "#8B949E",
+              }}
+            >
+              TOTAL P&L
+            </span>
+            <span
+              className="font-mono tabular-nums"
+              style={{
+                fontSize: 12,
+                fontWeight: 700,
+                color: totals.pnl >= 0 ? "#00E6A8" : "#FF4458",
+              }}
+            >
+              {totals.pnl >= 0 ? "+" : ""}${Math.abs(totals.pnl).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+            </span>
+            <span
+              className="font-mono tabular-nums"
+              style={{
+                fontSize: 10,
+                fontWeight: 600,
+                color: totals.pnlPct >= 0 ? "#00E6A8" : "#FF4458",
+                opacity: 0.8,
+              }}
+            >
+              ({totals.pnlPct >= 0 ? "+" : ""}{totals.pnlPct.toFixed(2)}%)
+            </span>
+          </div>
+          <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+            <span
+              style={{
+                fontSize: 8,
+                fontWeight: 600,
+                letterSpacing: 1,
+                textTransform: "uppercase",
+                color: "#484F58",
+              }}
+            >
+              TODAY
+            </span>
+            <span
+              className="font-mono tabular-nums"
+              style={{
+                fontSize: 10,
+                fontWeight: 600,
+                color: totals.totalDayChg >= 0 ? "#00E6A8" : "#FF4458",
+              }}
+            >
+              {totals.totalDayChg >= 0 ? "+" : ""}${Math.abs(totals.totalDayChg).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+            </span>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -1,0 +1,30 @@
+{
+  "summary": {
+    "totalValue": 63026.55,
+    "dayChange": 1962.75,
+    "dayChangePct": 3.2,
+    "totalGainLoss": 8568.33,
+    "totalGainLossPct": 15.73,
+    "holdingsCount": 16,
+    "upToday": 10,
+    "downToday": 4
+  },
+  "holdings": [
+    {"ticker": "IBIT", "name": "iShares Bitcoin Trust ETF", "quantity": 200, "costBasis": 11411.04, "price": 40.07, "value": 8014.00, "dayChange": 72.00, "dayChangePct": 0.91, "gainLoss": -3397.04, "gainLossPct": -29.77, "type": "ETF", "sector": "Crypto"},
+    {"ticker": "IREN", "name": "IREN Limited", "quantity": 150, "costBasis": 911.75, "price": 41.98, "value": 6297.00, "dayChange": 579.00, "dayChangePct": 10.13, "gainLoss": 5385.25, "gainLossPct": 590.65, "type": "Stock", "sector": "Technology"},
+    {"ticker": "NBIS", "name": "Nebius Group N.V.", "quantity": 40, "costBasis": 2087.31, "price": 112.00, "value": 4479.80, "dayChange": 622.60, "dayChangePct": 16.14, "gainLoss": 2392.49, "gainLossPct": 114.62, "type": "Stock", "sector": "Technology"},
+    {"ticker": "STRL", "name": "Sterling Infrastructure", "quantity": 10, "costBasis": 3823.98, "price": 420.60, "value": 4206.00, "dayChange": 90.70, "dayChangePct": 2.20, "gainLoss": 382.02, "gainLossPct": 9.99, "type": "Stock", "sector": "Industrials"},
+    {"ticker": "BMNR", "name": "BitMine Immersion Tech", "quantity": 200, "costBasis": 4414.59, "price": 21.03, "value": 4206.00, "dayChange": 0, "dayChangePct": 0, "gainLoss": -208.59, "gainLossPct": -4.73, "type": "Stock", "sector": "Technology"},
+    {"ticker": "AMD", "name": "Advanced Micro Devices", "quantity": 20, "costBasis": 2077.99, "price": 204.83, "value": 4096.60, "dayChange": 32.00, "dayChangePct": 0.79, "gainLoss": 2018.61, "gainLossPct": 97.14, "type": "Stock", "sector": "Technology"},
+    {"ticker": "TE", "name": "T1 Energy Inc", "quantity": 500, "costBasis": 1716.23, "price": 8.14, "value": 4070.00, "dayChange": 80.00, "dayChangePct": 2.01, "gainLoss": 2353.77, "gainLossPct": 137.15, "type": "Stock", "sector": "Energy"},
+    {"ticker": "COHR", "name": "Coherent, Inc.", "quantity": 15, "costBasis": 3326.44, "price": 251.41, "value": 3771.15, "dayChange": -138.45, "dayChangePct": -3.54, "gainLoss": 444.71, "gainLossPct": 13.37, "type": "Stock", "sector": "Technology"},
+    {"ticker": "VELO", "name": "Velo3D, Inc.", "quantity": 250, "costBasis": 3543.75, "price": 13.98, "value": 3495.00, "dayChange": 397.50, "dayChangePct": 12.83, "gainLoss": -48.75, "gainLossPct": -1.38, "type": "Stock", "sector": "Technology"},
+    {"ticker": "DLO", "name": "DLocal Limited", "quantity": 280, "costBasis": 3547.60, "price": 12.01, "value": 3362.80, "dayChange": 8.40, "dayChangePct": 0.25, "gainLoss": -184.80, "gainLossPct": -5.21, "type": "Stock", "sector": "Financials"},
+    {"ticker": "SMCI", "name": "Super Micro Computer", "quantity": 100, "costBasis": 3176.50, "price": 31.79, "value": 3179.00, "dayChange": 0, "dayChangePct": 0, "gainLoss": 2.50, "gainLossPct": 0.08, "type": "Stock", "sector": "Technology"},
+    {"ticker": "INDI", "name": "indie Semiconductor", "quantity": 1200, "costBasis": 3114.88, "price": 2.59, "value": 3108.00, "dayChange": -24.00, "dayChangePct": -0.77, "gainLoss": -6.88, "gainLossPct": -0.22, "type": "Stock", "sector": "Technology"},
+    {"ticker": "HIMS", "name": "Hims & Hers Health", "quantity": 120, "costBasis": 2788.38, "price": 25.88, "value": 3105.60, "dayChange": 289.20, "dayChangePct": 10.27, "gainLoss": 317.22, "gainLossPct": 11.38, "type": "Stock", "sector": "Healthcare"},
+    {"ticker": "CLSK", "name": "CleanSpark, Inc.", "quantity": 270, "costBasis": 3345.76, "price": 9.81, "value": 2648.70, "dayChange": 48.60, "dayChangePct": 1.87, "gainLoss": -697.06, "gainLossPct": -20.83, "type": "Stock", "sector": "Technology"},
+    {"ticker": "ELF", "name": "e.l.f. Beauty", "quantity": 30, "costBasis": 2410.80, "price": 79.95, "value": 2398.50, "dayChange": -16.20, "dayChangePct": -0.67, "gainLoss": -12.30, "gainLossPct": -0.51, "type": "Stock", "sector": "Consumer Discretionary"},
+    {"ticker": "VST", "name": "Vistra Corp.", "quantity": 15, "costBasis": 2340.00, "price": 159.16, "value": 2387.40, "dayChange": -78.60, "dayChangePct": -3.19, "gainLoss": 47.40, "gainLossPct": 2.03, "type": "Stock", "sector": "Utilities"}
+  ]
+}

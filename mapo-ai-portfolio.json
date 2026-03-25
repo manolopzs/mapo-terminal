@@ -1,0 +1,42 @@
+{
+  "name": "Mapo AI Portfolio",
+  "type": "custom",
+  "startingCapital": 20454.16,
+  "startDate": "2026-01-29",
+  "holdings": [
+    {"ticker": "STRL", "name": "Sterling Infrastructure", "quantity": 10, "costBasis": 3823.90, "price": 422.05, "value": 4220.50, "dayChange": 0, "dayChangePct": 0, "gainLoss": 396.60, "gainLossPct": 10.37, "type": "Stock", "sector": "Industrials"},
+    {"ticker": "COHR", "name": "Coherent Corp", "quantity": 15, "costBasis": 3326.40, "price": 252.49, "value": 3787.35, "dayChange": 0, "dayChangePct": 0, "gainLoss": 460.95, "gainLossPct": 13.86, "type": "Stock", "sector": "Technology"},
+    {"ticker": "DLO", "name": "DLocal Limited", "quantity": 280, "costBasis": 3547.60, "price": 12.02, "value": 3365.60, "dayChange": 0, "dayChangePct": 0, "gainLoss": -182.00, "gainLossPct": -5.13, "type": "Stock", "sector": "Financials"},
+    {"ticker": "SMCI", "name": "Super Micro Computer", "quantity": 100, "costBasis": 3177.00, "price": 31.68, "value": 3168.00, "dayChange": 0, "dayChangePct": 0, "gainLoss": -9.00, "gainLossPct": -0.28, "type": "Stock", "sector": "Technology"},
+    {"ticker": "ELF", "name": "e.l.f. Beauty", "quantity": 30, "costBasis": 2410.50, "price": 80.31, "value": 2409.30, "dayChange": 0, "dayChangePct": 0, "gainLoss": -1.20, "gainLossPct": -0.05, "type": "Stock", "sector": "Consumer Discretionary"},
+    {"ticker": "VST", "name": "Vistra Corp", "quantity": 15, "costBasis": 2340.00, "price": 157.02, "value": 2355.30, "dayChange": 0, "dayChangePct": 0, "gainLoss": 15.30, "gainLossPct": 0.65, "type": "Stock", "sector": "Utilities"}
+  ],
+  "trades": [
+    {"date": "2026-01-29", "action": "BUY", "ticker": "STRL", "name": "Sterling Infrastructure", "shares": 14, "price": 382.39, "total": 5353.46, "rationale": "Initial - AI data center construction, Score 79/100"},
+    {"date": "2026-01-29", "action": "BUY", "ticker": "COHR", "name": "Coherent Corp", "shares": 19, "price": 221.76, "total": 4213.44, "rationale": "Initial - AI optical supercycle, Score 76/100"},
+    {"date": "2026-01-29", "action": "BUY", "ticker": "RMBS", "name": "Rambus Inc", "shares": 37, "price": 123.09, "total": 4554.33, "rationale": "Initial - DDR5 AI memory leader, Score 81/100"},
+    {"date": "2026-01-29", "action": "BUY", "ticker": "FOUR", "name": "Shift4 Payments", "shares": 62, "price": 59.31, "total": 3677.22, "rationale": "Initial - undervalued fintech, Score 77/100"},
+    {"date": "2026-01-29", "action": "BUY", "ticker": "AMBA", "name": "Ambarella Inc", "shares": 40, "price": 66.39, "total": 2655.60, "rationale": "Initial - edge AI speculative, Score 70/100"},
+    {"date": "2026-02-05", "action": "SELL", "ticker": "FOUR", "name": "Shift4 Payments", "shares": 62, "price": 56.92, "total": 3529.04, "pnl": -148.18, "rationale": "Exit trigger hit, thesis broken"},
+    {"date": "2026-02-05", "action": "BUY", "ticker": "DLO", "name": "DLocal Limited", "shares": 280, "price": 12.67, "total": 3547.60, "rationale": "FOUR replacement - DLocal, EM payments"},
+    {"date": "2026-02-20", "action": "SELL", "ticker": "STRL", "name": "Sterling Infrastructure", "shares": 4, "price": 442.51, "total": 1770.04, "pnl": 240.48, "rationale": "Partial trim - position appreciated significantly"},
+    {"date": "2026-02-24", "action": "SELL", "ticker": "RMBS", "name": "Rambus Inc", "shares": 18, "price": 101.08, "total": 1819.44, "pnl": -396.18, "rationale": "Partial exit - drawdown review triggered"},
+    {"date": "2026-02-25", "action": "BUY", "ticker": "CRDO", "name": "Credo Technology", "shares": 15, "price": 119.27, "total": 1789.05, "rationale": "New position - high-speed connectivity play"},
+    {"date": "2026-02-25", "action": "BUY", "ticker": "LULU", "name": "Lululemon Athletica", "shares": 10, "price": 181.49, "total": 1814.90, "rationale": "New position - consumer resilience play"},
+    {"date": "2026-03-03", "action": "SELL", "ticker": "RMBS", "name": "Rambus Inc", "shares": 19, "price": 90.51, "total": 1719.69, "pnl": -619.02, "rationale": "Full exit - thesis broken after continued decline"},
+    {"date": "2026-03-03", "action": "SELL", "ticker": "AMBA", "name": "Ambarella Inc", "shares": 40, "price": 57.83, "total": 2313.20, "pnl": -342.40, "rationale": "Full exit - underperformance"},
+    {"date": "2026-03-03", "action": "SELL", "ticker": "COHR", "name": "Coherent Corp", "shares": 4, "price": 275.08, "total": 1100.32, "pnl": 213.24, "rationale": "Partial trim - rebalancing"},
+    {"date": "2026-03-03", "action": "SELL", "ticker": "CRDO", "name": "Credo Technology", "shares": 15, "price": 93.80, "total": 1407.00, "pnl": -382.05, "rationale": "Full exit - rapid decline"},
+    {"date": "2026-03-03", "action": "SELL", "ticker": "LULU", "name": "Lululemon Athletica", "shares": 10, "price": 169.77, "total": 1697.70, "pnl": -117.20, "rationale": "Full exit - macro headwinds"},
+    {"date": "2026-03-03", "action": "BUY", "ticker": "VST", "name": "Vistra Corp", "shares": 15, "price": 156.00, "total": 2340.00, "rationale": "New position - energy/utilities play"},
+    {"date": "2026-03-03", "action": "BUY", "ticker": "ELF", "name": "e.l.f. Beauty", "shares": 30, "price": 80.35, "total": 2410.50, "rationale": "New position - undervalued beauty brand"},
+    {"date": "2026-03-05", "action": "BUY", "ticker": "SMCI", "name": "Super Micro Computer", "shares": 100, "price": 31.77, "total": 3177.00, "rationale": "New position - AI server infrastructure"}
+  ],
+  "exitedPositions": [
+    {"ticker": "FOUR", "name": "Shift4 Payments", "sector": "Fintech", "shares": 62, "buyPrice": 59.31, "sellPrice": 56.92, "pnl": -148.18, "pnlPct": -4.03, "exitDate": "2026-02-05", "reason": "Exit trigger hit - thesis broken"},
+    {"ticker": "RMBS", "name": "Rambus Inc", "sector": "Semiconductors", "shares": 37, "avgBuyPrice": 123.09, "avgSellPrice": 95.60, "pnl": -1015.20, "pnlPct": -22.33, "exitDate": "2026-03-03", "reason": "Thesis broken - continued decline"},
+    {"ticker": "AMBA", "name": "Ambarella Inc", "sector": "IoT / Edge AI", "shares": 40, "buyPrice": 66.39, "sellPrice": 57.83, "pnl": -342.40, "pnlPct": -12.89, "exitDate": "2026-03-03", "reason": "Underperformance"},
+    {"ticker": "CRDO", "name": "Credo Technology", "sector": "Semiconductors", "shares": 15, "buyPrice": 119.27, "sellPrice": 93.80, "pnl": -382.05, "pnlPct": -21.35, "exitDate": "2026-03-03", "reason": "Rapid decline"},
+    {"ticker": "LULU", "name": "Lululemon Athletica", "sector": "Consumer Discretionary", "shares": 10, "buyPrice": 181.49, "sellPrice": 169.77, "pnl": -117.20, "pnlPct": -6.45, "exitDate": "2026-03-03", "reason": "Macro headwinds"}
+  ]
+}

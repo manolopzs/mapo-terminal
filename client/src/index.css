@@ -136,6 +136,10 @@
   animation: ticker-scroll 45s linear infinite;
 }
 
+.animate-marquee {
+  animation: ticker-scroll 45s linear infinite;
+}
+
 /* Pulse animation for live badge */
 @keyframes pulse-dot {
   0%, 100% {

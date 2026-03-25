@@ -213,17 +213,18 @@ export async function fetchMarketSentiment(): Promise<MarketSentiment> {
   });
 }
 
-// Fetch news headlines — only 2 tickers to keep it fast
+// Fetch news headlines — 4 tickers for variety
 // Cache for 10 minutes
 export async function fetchPortfolioNews(tickers: string[]): Promise<Array<{ ticker: string; headline: string; time: string; source: string }>> {
   if (tickers.length === 0) return [];
-  const key = `news:${tickers.slice(0, 2).sort().join(",")}`;
+  const selectedTickers = tickers.slice(0, 4);
+  const key = `news:${selectedTickers.sort().join(",")}`;
   return cachedAsync(key, 600_000, async () => {
     const results: Array<{ ticker: string; headline: string; time: string; source: string }> = [];
 
-    // Fetch 2 tickers in parallel (not sequential)
+    // Fetch 4 tickers in parallel
     const newsResults = await Promise.all(
-      tickers.slice(0, 2).map(async (ticker) => {
+      selectedTickers.map(async (ticker) => {
         try {
           const result = await callTool("finance", "finance_ticker_sentiment", {
             ticker_symbol: ticker,
@@ -237,26 +238,34 @@ export async function fetchPortfolioNews(tickers: string[]): Promise<Array<{ tic
       })
     );
 
+    const seenHeadlines = new Set<string>();
+
     for (const { ticker, result } of newsResults) {
       if (!result?.content) continue;
       const content = result.content as string;
 
-      // Extract key topics from bull/bear analysis
-      const issueMatch = content.match(/(?:Issue|Topic|Question)[\s\d]*[:\-]\s*(.+)/i);
+      // Extract key topics — issue/topic line is the primary headline
+      const issueMatch = content.match(/(?:Issue|Topic|Question|Key Question)[\s\d]*[:\-]\s*(.+)/i);
       const bullMatch = content.match(/(?:Bull|Bullish)[^:]*:\s*(.+?)(?:\n|$)/i);
       const bearMatch = content.match(/(?:Bear|Bearish)[^:]*:\s*(.+?)(?:\n|$)/i);
 
+      // Clean headline: remove trailing asterisks and markdown
+      const clean = (s: string) => s.replace(/\*+/g, "").replace(/^\s*[-–]\s*/, "").trim().slice(0, 120);
+
       if (issueMatch) {
-        results.push({ ticker, headline: issueMatch[1].trim().slice(0, 120), time: "now", source: "Analyst" });
+        const h = clean(issueMatch[1]);
+        if (!seenHeadlines.has(h)) { seenHeadlines.add(h); results.push({ ticker, headline: h, time: "now", source: "Analyst" }); }
       }
       if (bullMatch) {
-        results.push({ ticker, headline: bullMatch[1].trim().slice(0, 120), time: "today", source: "Analysis" });
+        const h = clean(bullMatch[1]);
+        if (!seenHeadlines.has(h)) { seenHeadlines.add(h); results.push({ ticker, headline: h, time: "today", source: "Analysis" }); }
       }
       if (bearMatch) {
-        results.push({ ticker, headline: bearMatch[1].trim().slice(0, 120), time: "today", source: "Analysis" });
+        const h = clean(bearMatch[1]);
+        if (!seenHeadlines.has(h)) { seenHeadlines.add(h); results.push({ ticker, headline: h, time: "today", source: "Analysis" }); }
       }
     }
 
-    return results.slice(0, 8);
+    return results.slice(0, 12);
   });
 }

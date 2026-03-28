@@ -18,6 +18,7 @@ import { TerminalSidebar } from "@/components/TerminalSidebar";
 import { TradeHistory } from "@/components/TradeHistory";
 import { AIAnalyst } from "@/components/AIAnalyst";
 import { AddPositionDialog } from "@/components/AddPositionDialog";
+import { LogTradeDialog } from "@/components/LogTradeDialog";
 import { useHoldings, usePortfolios, useSummary, useLiveQuotes, useLiveEarnings, useLiveSentiment, useLiveNews } from "@/hooks/use-portfolio";
 import { queryClient } from "@/lib/queryClient";
 import { Loader2, Bot } from "lucide-react";
@@ -25,6 +26,7 @@ import { Loader2, Bot } from "lucide-react";
 export default function Dashboard() {
   const [activePortfolioId, setActivePortfolioId] = useState<string>("");
   const [addPositionOpen, setAddPositionOpen] = useState(false);
+  const [logTradeOpen, setLogTradeOpen] = useState(false);
   const [analystOpen, setAnalystOpen] = useState(false);
   const [loadingTimeout, setLoadingTimeout] = useState(false);
 
@@ -121,6 +123,7 @@ export default function Dashboard() {
         activePortfolioId={activePortfolioId}
         onSelectPortfolio={setActivePortfolioId}
         onAddPosition={() => setAddPositionOpen(true)}
+        onLogTrade={() => setLogTradeOpen(true)}
       />
 
       {/* Main terminal area */}
@@ -257,6 +260,13 @@ export default function Dashboard() {
         open={addPositionOpen}
         onOpenChange={setAddPositionOpen}
         activePortfolioId={activePortfolioId}
+      />
+
+      {/* Log Trade Dialog */}
+      <LogTradeDialog
+        open={logTradeOpen}
+        onOpenChange={setLogTradeOpen}
+        portfolioId={activePortfolioId}
       />
     </div>
   );

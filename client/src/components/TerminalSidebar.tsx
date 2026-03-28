@@ -10,6 +10,7 @@ import {
   Bitcoin,
   LayoutGrid,
   Trash2,
+  ArrowRightLeft,
 } from "lucide-react";
 // No "All Portfolios" — each portfolio is isolated
 import { usePortfolios, useCreatePortfolio, useDeletePortfolio } from "@/hooks/use-portfolio";
@@ -20,6 +21,7 @@ interface TerminalSidebarProps {
   activePortfolioId: string;
   onSelectPortfolio: (id: string) => void;
   onAddPosition: () => void;
+  onLogTrade: () => void;
 }
 
 const PORTFOLIO_ICONS: Record<string, typeof Briefcase> = {
@@ -29,7 +31,7 @@ const PORTFOLIO_ICONS: Record<string, typeof Briefcase> = {
   custom: LayoutGrid,
 };
 
-export function TerminalSidebar({ activePortfolioId, onSelectPortfolio, onAddPosition }: TerminalSidebarProps) {
+export function TerminalSidebar({ activePortfolioId, onSelectPortfolio, onAddPosition, onLogTrade }: TerminalSidebarProps) {
   const [collapsed, setCollapsed] = useState(false);
   const [showNewForm, setShowNewForm] = useState(false);
   const [newName, setNewName] = useState("");
@@ -334,6 +336,33 @@ export function TerminalSidebar({ activePortfolioId, onSelectPortfolio, onAddPos
             {!collapsed && <span>New Portfolio</span>}
           </button>
         )}
+
+        {/* Log Trade */}
+        <button
+          onClick={() => {
+            if (collapsed) setCollapsed(false);
+            onLogTrade();
+          }}
+          className="flex items-center justify-center gap-1"
+          style={{
+            width: "100%",
+            fontSize: 8,
+            fontWeight: 600,
+            padding: "4px 0",
+            background: "rgba(255, 68, 88, 0.08)",
+            color: "#FF4458",
+            border: "1px solid rgba(255, 68, 88, 0.2)",
+            borderRadius: 2,
+            cursor: "pointer",
+            letterSpacing: 0.8,
+            textTransform: "uppercase",
+            marginBottom: 3,
+          }}
+          data-testid="log-trade-btn"
+        >
+          <ArrowRightLeft size={10} />
+          {!collapsed && <span>Log Trade</span>}
+        </button>
 
         {/* Add Position */}
         <button

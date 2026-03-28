@@ -2,7 +2,7 @@ import { useQuery, useMutation } from "@tanstack/react-query";
 import { queryClient, apiRequest } from "@/lib/queryClient";
 import type { Holding, Portfolio, Trade, ChatMessage } from "@shared/schema";
 
-const API_BASE = "__PORT_5000__".startsWith("__") ? "" : "__PORT_5000__";
+const API_BASE = "";
 
 interface PortfolioSummary {
   totalValue: number;
@@ -93,6 +93,33 @@ export function useDeletePortfolio() {
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["/api/portfolios"] });
+    },
+  });
+}
+
+export function useCreateTrade() {
+  return useMutation({
+    mutationFn: async (data: Partial<Trade>) => {
+      const res = await apiRequest("POST", "/api/trades", data);
+      return res.json();
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["/api/trades"], exact: false });
+      queryClient.invalidateQueries({ queryKey: ["/api/holdings"], exact: false });
+      queryClient.invalidateQueries({ queryKey: ["/api/summary"], exact: false });
+    },
+  });
+}
+
+export function useUpdateHolding() {
+  return useMutation({
+    mutationFn: async ({ id, data }: { id: string; data: Partial<Holding> }) => {
+      const res = await apiRequest("PUT", `/api/holdings/${id}`, data);
+      return res.json();
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["/api/holdings"], exact: false });
+      queryClient.invalidateQueries({ queryKey: ["/api/summary"], exact: false });
     },
   });
 }

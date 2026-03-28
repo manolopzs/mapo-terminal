@@ -2,7 +2,7 @@ import { useQuery, useMutation } from "@tanstack/react-query";
 import { queryClient, apiRequest } from "@/lib/queryClient";
 import type { Holding, Portfolio, Trade, ChatMessage } from "@shared/schema";
 
-const API_BASE = "";
+const API_BASE = ".";
 
 interface PortfolioSummary {
   totalValue: number;
